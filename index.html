@@ -1,11 +1,71 @@
-<html>
-  <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1429840077890100"
-     crossorigin="anonymous"></script>
-  </head>
-  <h1>Yolo!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junaid Babu's App Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Add a subtle gradient background */
+        body {
+            background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
+        }
+        /* Style for the link cards */
+        .link-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 text-gray-800">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1429840077890100"
+    <div class="w-full max-w-3xl bg-white rounded-xl shadow-lg p-8 md:p-12">
+
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Welcome!</h1>
+            <p class="text-lg text-gray-600">Explore my collection of web apps, often built using vibe coding and exploring AI tools like Gemini and OpenAI.</p>
+        </header>
+
+        <main class="mb-8">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                This is the central hub for the applications I'm building and experimenting with. I'm constantly adding new projects, so feel free to check back often. Below you'll find links to the currently available apps.
+            </p>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">Available Apps</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <a href="http://junaidbabu.github.io/alphabets-vibe/" target="_blank" rel="noopener noreferrer" class="link-card block bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-lg shadow hover:shadow-xl transition duration-300">
+                        <h3 class="text-xl font-semibold mb-1">Alphabets Vibe - Kids Learning</h3>
+                        <p class="text-blue-100">An interactive site for kids to practice writing and improve their alphabet skills.</p>
+                    </a>
+
+                    </div>
+            </section>
+        </main>
+
+        <footer class="text-center text-gray-500 text-sm mt-12 pt-4 border-t">
+            &copy; <span id="current-year"></span> junaidbabu.github.io. All Rights Reserved.
+        </footer>
+
+    </div>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1429840077890100"
  crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZVXJQXPM3"></script>
@@ -16,4 +76,5 @@
 
   gtag('config', 'G-5ZVXJQXPM3');
 </script>
+</body>
 </html>
