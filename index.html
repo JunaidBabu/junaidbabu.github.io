@@ -1,85 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junaid Babu's App Collection</title>
+    <meta name="description" content="Junaid Babu's interactive web application portfolio. Explore AI-assisted tools, educational resources, and multiplayer games built with modern web technologies.">
+    
+    <title>Junaid Babu | Interactive Web Applications</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Apply Inter font globally */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Add a subtle gradient background */
-        body {
-            background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
-        }
-        /* Style for the link cards */
-        .link-card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .link-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col items-center justify-center p-6 text-gray-800">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- AdSense Auto Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1429840077890100" crossorigin="anonymous"></script>
 
-    <div class="w-full max-w-3xl bg-white rounded-xl shadow-lg p-8 md:p-12">
-
-        <header class="mb-8 text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Welcome!</h1>
-            <p class="text-lg text-gray-600">Explore my collection of web apps, often built using vibe coding and exploring AI tools like Gemini and OpenAI.</p>
-        </header>
-
-        <main class="mb-8">
-            <p class="text-gray-700 leading-relaxed mb-6">
-                This is the central hub for the applications I'm building and experimenting with. I'm constantly adding new projects, so feel free to check back often. Below you'll find links to the currently available apps.
-            </p>
-
-            <section>
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2">Available Apps</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                    <a href="http://junaidbabu.github.io/alphabets-vibe/" target="_blank" rel="noopener noreferrer" class="link-card block bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-lg shadow hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-semibold mb-1">Alphabets Vibe - Kids Learning</h3>
-                        <p class="text-blue-100">An interactive site for kids to practice writing and improve their alphabet skills.</p>
-                    </a>
-
-                    <a href="https://junaidbabu.github.io/Tic-Tac-Vibe/" target="_blank" rel="noopener noreferrer" class="link-card block bg-gradient-to-r from-green-500 to-teal-600 text-white p-6 rounded-lg shadow hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-semibold mb-1">Tic-Tac-Vibe - Multiplayer Game</h3>
-                        <p class="text-green-100">An endless multiplayer Tic Tac Toe game experience.</p>
-                    </a>
-
-                    </div>
-            </section>
-        </main>
-
-        <footer class="text-center text-gray-500 text-sm mt-12 pt-4 border-t">
-            &copy; <span id="current-year"></span> junaidbabu.github.io. All Rights Reserved.
-        </footer>
-
-    </div>
-
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1429840077890100"
-     crossorigin="anonymous"></script>
-
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZVXJQXPM3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-5ZVXJQXPM3');
     </script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f4f6fc',
+                            100: '#e5eaf8',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-slate-600 bg-slate-50 antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-sans font-bold text-xl tracking-tight text-slate-900">Junaid<span class="text-brand-600">Babu</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#portfolio" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Portfolio</a>
+                    <a href="#about" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">About</a>
+                    <a href="contact.html" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-6 border border-brand-100">Welcome to my Digital Hub</span>
+            <h1 class="font-sans text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                Building interactive <br class="hidden sm:block" /> web applications
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
+                I seamlessly transform abstract thoughts into tangible, functional products. By combining modern frameworks with the latest AI integrations, I engineer highly interactive and scalable applications directly in the browser.
+            </p>
+            <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 ease-in-out">
+                Explore My Work
+            </a>
+        </section>
+
+        <!-- Portfolio Hub Section -->
+        <section id="portfolio" class="bg-white py-20 border-y border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-sans text-3xl font-bold text-slate-900 mb-4">Featured Projects</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">From educational phonics companions for early childhood reading to endless multiplayer experiences, discover my open-source showcase.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Alphabets Vibe -->
+                    <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                        <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 w-full relative">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="font-sans text-xl font-bold text-slate-900 mb-2">Alphabets Vibe</h3>
+                            <p class="text-slate-600 leading-relaxed mb-6 flex-grow">A gamified, interactive site tailored for young kids to intuitively practice handwriting and master their alphabet recognition skills.</p>
+                            <a href="http://junaidbabu.github.io/alphabets-vibe/" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-semibold hover:text-brand-900 flex items-center">
+                                Launch App 
+                                <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tic-Tac-Vibe -->
+                    <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                        <div class="h-48 bg-gradient-to-br from-emerald-400 to-teal-600 w-full relative">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="font-sans text-xl font-bold text-slate-900 mb-2">Tic-Tac-Vibe</h3>
+                            <p class="text-slate-600 leading-relaxed mb-6 flex-grow">A sleek, fast-paced multiplayer reimagining of Tic Tac Toe utilizing modern endless loop mechanics for continuous play.</p>
+                            <a href="https://junaidbabu.github.io/Tic-Tac-Vibe/" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-semibold hover:text-brand-900 flex items-center">
+                                Launch App 
+                                <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Phonics Buddy -->
+                    <div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full ring-2 ring-brand-500 ring-offset-2">
+                        <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 w-full relative flex items-center justify-center">
+                            <span class="absolute top-4 right-4 bg-white/20 text-white text-xs px-3 py-1 rounded-full font-semibold backdrop-blur-sm border border-white/30">New Release</span>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h3 class="font-sans text-xl font-bold text-slate-900 mb-2">Phonics Buddy</h3>
+                            <p class="text-slate-600 leading-relaxed mb-6 flex-grow">An advanced, AI-assisted reading tutor for children featuring real-time speech validation, dynamic progression, and offline neural TTS capabilities.</p>
+                            <a href="https://junaidbabu.github.io/Phonics-Buddy/" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-semibold hover:text-brand-900 flex items-center">
+                                Launch App 
+                                <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 lg:py-32">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-sans text-3xl font-bold text-slate-900 mb-6">About My Approach</h2>
+                <div class="prose prose-lg text-slate-600 mx-auto">
+                    <p class="mb-4">
+                        Quality software shouldn't require complex infrastructures or expensive proprietary subscriptions to operate smoothly. I focus heavily on "Web Native" solutions. 
+                    </p>
+                    <p class="mb-4">
+                        By utilizing tools like React, Vite, Tailwind CSS, and in-browser AI engines (like Web Speech APIs and Transformers.js), I build software that runs primarily on device hardware. This approach ensures maximum privacy, offline capabilities, and zero hidden costs.
+                    </p>
+                    <p>
+                        My mission is to create educational and utility platforms that are instantly accessible to anyone, anywhere in the world on lightweight internet connections.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer for AdSense Compliance -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="font-sans font-bold text-xl tracking-tight text-white">Junaid<span class="text-brand-500">Babu</span></span>
+                <p class="text-sm mt-2">&copy; <span id="current-year"></span> Junaid Babu. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-sm font-medium">
+                <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
