@@ -1,50 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline-First AI: Hard Lessons from Building Phonics Buddy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1429840077890100" crossorigin="anonymous"></script>
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
-            <a href="index.html" class="font-bold text-xl text-slate-900">Junaid<span class="text-blue-600">Babu</span></a>
-            <a href="blog.html" class="text-slate-600 hover:text-blue-600 font-medium tracking-wide">Back to Blog</a>
-        </div>
-    </nav>
+---
+import Layout from '../../layouts/Layout.astro';
+---
 
-    <main class="flex-grow max-w-3xl mx-auto px-4 py-16 w-full">
+<Layout 
+    title="Offline-First AI: Hard Lessons from Building Phonics Buddy | Junaid Babu" 
+    description="Explore the architectural challenges of building a completely offline browser-based AI reading tutor, tackling Web Speech API memory traps and WASM pipeline constraints."
+    showAds={true}
+>
+    <div class="max-w-3xl mx-auto px-4 py-16 w-full">
+        <a href="/blog" class="text-sm text-brand-600 font-semibold mb-8 inline-block hover:text-brand-800">&larr; Back to Blog</a>
+        
         <article class="prose prose-lg prose-slate max-w-none">
-            <p class="text-sm text-blue-600 font-bold uppercase tracking-wider mb-1">April 7, 2026</p>
-            <h1 class="text-4xl font-extrabold text-slate-900 mb-8 leading-tight">Offline-First AI: Hard Lessons from Building Phonics Buddy</h1>
+            <p class="text-sm text-brand-600 font-bold uppercase tracking-wider mb-1">April 7, 2026</p>
+            <h1 class="font-sans text-4xl font-extrabold text-slate-900 mb-8 leading-tight">Offline-First AI: Hard Lessons from Building Phonics Buddy</h1>
             
             <p>Building an interactive, browser-based AI reading tutor for children sounds straightforward in the era of pervasive machine learning APIs. The initial logic: record the child's voice, send it to a backend, validate it, and pipe back a shiny Text-to-Speech (TTS) reward mechanism.</p>
             
             <p>But there was a catch. I wanted <strong>Phonics Buddy</strong> to function entirely offline, natively in the browser via GitHub Pages, with zero backend infrastructure. This mandate forced me into the brutal, bleeding-edge world of experimental browser APIs and WASM models.</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4">The Web Speech API Memory Trap</h2>
+            <h2 class="font-sans text-2xl font-bold text-slate-900 mt-10 mb-4">The Web Speech API Memory Trap</h2>
             <p>My first massive architectural hurdle was handling the Speech-to-Text (STT) memory constraints. I utilized the OS-native Web Speech API heavily optimized for Indian English (<code>en-IN</code>) to ensure maximum accessibility without cloud latency. However, children don't read statically—they pause, stutter, and re-attempt words.</p>
             
             <p>I quickly noticed a devastating bug during live testing: when a child progressed a long sentence, the API held onto its internal history cache. The spoken text from the previous word would "bleed" into the next React state evaluation cycle, triggering false positives and automatically skipping words the child hadn't even attempted yet.</p>
             
             <p>To combat this, I couldn't just <code>setState('')</code>. I had to rip deep into my custom hooks and violently execute <code>recognition.abort()</code> on word progression, forcefully scrubbing the OS-level memory buffer and relying on an aggressive <code>onend</code> handler to hot-reboot the microphone seamlessly 100ms later. It felt dirty, but it resolved the ghost-state issues perfectly.</p>
 
-            <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4">The Hugging Face Pipeline Crash</h2>
+            <h2 class="font-sans text-2xl font-bold text-slate-900 mt-10 mb-4">The Hugging Face Pipeline Crash</h2>
             <p>My second, ultimately fatal, architectural detour was attempting to embed a literal neural network inside the frontend deployment wrapper. I wired up Xenova's <code>Transformers.js</code> to run an offline SpeechT5 neural TTS model to give the bot a hyper-realistic accent. </p>
             
             <p>The concept was phenomenal: ship the neural weights natively inside the Vite build. The execution was a disaster. The deployment buckled under obscure <code>RangeError: ArrayBuffer length minus the byteOffset is not a multiple of the element size</code> exceptions inside the WASM matrix math, completely crashing Safari and older iPads. </p>
             
             <p><strong>The outcome:</strong> I realized over-engineering was fundamentally killing the project's accessibility goals. I violently ripped the massive AI pipeline out of my <code>package.json</code>, deleted the custom hooks, and reverted precisely to the system-level <code>window.speechSynthesis</code> tools. It proved that sometimes the most robust integration is leveraging what the hardware already offers.</p>
 
-            <p class="mt-8 italic text-slate-500 border-l-4 border-blue-500 pl-4 py-2">Development isn't always about installing the newest framework. Sometimes, engineering excellence is knowing exactly when to utilize native implementations over flashy abstractions.</p>
+            <p class="mt-8 italic text-slate-500 border-l-4 border-brand-500 pl-4 py-2">Development isn't always about installing the newest framework. Sometimes, engineering excellence is knowing exactly when to utilize native implementations over flashy abstractions.</p>
         </article>
-    </main>
-
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
-        <p>&copy; 2026 Junaid Babu. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    </div>
+</Layout>

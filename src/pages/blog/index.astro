@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout 
+    title="Blog & Tech Articles | Junaid Babu" 
+    description="Deep dives into browser APIs, AI integration, and the architectural challenges of shipping offline-first educational web software."
+    showAds={true}
+>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <div class="mb-12">
+            <h1 class="font-sans text-4xl font-extrabold text-slate-900 mb-4">Engineering Blog</h1>
+            <p class="text-lg text-slate-600">Deep dives into browser APIs, AI integration, and the architectural challenges of shipping educational web software.</p>
+        </div>
+
+        <div class="grid gap-8">
+            <!-- Article 3 -->
+            <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <p class="text-sm text-brand-600 font-semibold mb-2">April 7, 2026</p>
+                <h2 class="font-sans text-2xl font-bold text-slate-900 mb-3"><a href="/blog/building-phonics-buddy" class="hover:text-brand-600 transition">Offline-First AI: Hard Lessons from Building Phonics Buddy</a></h2>
+                <p class="text-slate-600 mb-4 leading-relaxed">Integrating neural TTS and Web Speech APIs strictly in the browser sounds perfect on paper. In practice, memory buffers, WASM pipeline crashes, and OS-level API hijacking make offline architectural design incredibly difficult. Here's how I solved it.</p>
+                <a href="/blog/building-phonics-buddy" class="text-brand-600 font-medium flex items-center hover:text-brand-800">
+                    Read comprehensive case study
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <p class="text-sm text-brand-600 font-semibold mb-2">February 15, 2026</p>
+                <h2 class="font-sans text-2xl font-bold text-slate-900 mb-3"><a href="/blog/tic-tac-vibe-lessons" class="hover:text-brand-600 transition">State Management Nightmares in "Tic-Tac-Vibe"</a></h2>
+                <p class="text-slate-600 mb-4 leading-relaxed">Building an endless multiplayer game loop required overcoming complex React rendering race-conditions and WebSocket desyncing. Here is an architectural deep dive into my synchronization topology for simple gaming mechanics.</p>
+                <a href="/blog/tic-tac-vibe-lessons" class="text-brand-600 font-medium flex items-center hover:text-brand-800">
+                    Read comprehensive case study
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </article>
+
+            <!-- Article 1 -->
+            <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <p class="text-sm text-brand-600 font-semibold mb-2">November 10, 2025</p>
+                <h2 class="font-sans text-2xl font-bold text-slate-900 mb-3"><a href="/blog/alphabets-vibe-vibe-coding" class="hover:text-brand-600 transition">Transforming Abstract Ideas into Code with "Alphabets Vibe"</a></h2>
+                <p class="text-slate-600 mb-4 leading-relaxed">The journey of translating a purely abstract educational need into a tangible framework using Vite and Tailwind CSS. The pitfalls of touch event handling for children on mobile devices was the biggest hurdle.</p>
+                <a href="/blog/alphabets-vibe-vibe-coding" class="text-brand-600 font-medium flex items-center hover:text-brand-800">
+                    Read comprehensive case study
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </article>
+
+            <!-- Initial Entry -->
+            <article class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <p class="text-sm text-brand-600 font-semibold mb-2">April 8, 2025</p>
+                <h2 class="font-sans text-2xl font-bold text-slate-900 mb-3"><a href="/blog/mission-to-build-forever" class="hover:text-brand-600 transition">Hello World: A Mission to Build Software That Lives Forever</a></h2>
+                <p class="text-slate-600 mb-4 leading-relaxed">Looking back, so many amazing applications die because their servers inevitably shut down. My overarching goal is to convert ideas into products that outlive their own infrastructure dependencies. Here is the philosophy guiding my future builds.</p>
+                <a href="/blog/mission-to-build-forever" class="text-brand-600 font-medium flex items-center hover:text-brand-800">
+                    Read the manifesto
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </article>
+        </div>
+    </div>
+</Layout>

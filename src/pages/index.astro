@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Junaid Babu | Interactive Web Applications" showAds={false}>
+	<!-- Hero Section -->
+	<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-center">
+		<span class="inline-block py-1 px-3 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-6 border border-brand-100">Welcome to my Digital Hub</span>
+		<h1 class="font-sans text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+			Building interactive <br class="hidden sm:block" /> web applications
+		</h1>
+		<p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mb-10 leading-relaxed">
+			I seamlessly transform abstract thoughts into tangible, functional products. By combining modern frameworks with the latest AI integrations, I engineer highly interactive and scalable applications directly in the browser.
+		</p>
+		<a href="#portfolio" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 ease-in-out">
+			Explore My Work
+		</a>
+	</section>
+
+	<!-- Portfolio Hub Section -->
+	<section id="portfolio" class="bg-white py-20 border-y border-slate-200">
+		<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="font-sans text-3xl font-bold text-slate-900 mb-4">Featured Projects</h2>
+				<p class="text-slate-600 max-w-2xl mx-auto">From educational phonics companions for early childhood reading to endless multiplayer experiences, discover my open-source showcase.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<!-- Alphabets Vibe -->
+				<div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+					<div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 w-full relative">
+						<div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+					</div>
+					<div class="p-8 flex flex-col flex-grow">
+						<h3 class="font-sans text-xl font-bold text-slate-900 mb-2">Alphabets Vibe</h3>
+						<p class="text-slate-600 leading-relaxed mb-6 flex-grow">A gamified, interactive site tailored for young kids to intuitively practice handwriting and master their alphabet recognition skills.</p>
+						<a href="http://junaidbabu.github.io/alphabets-vibe/" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-semibold hover:text-brand-900 flex items-center">
+							Launch App 
+							<svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tic-Tac-Vibe -->
+				<div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+					<div class="h-48 bg-gradient-to-br from-emerald-400 to-teal-600 w-full relative">
+						<div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+					</div>
+					<div class="p-8 flex flex-col flex-grow">
+						<h3 class="font-sans text-xl font-bold text-slate-900 mb-2">Tic-Tac-Vibe</h3>
+						<p class="text-slate-600 leading-relaxed mb-6 flex-grow">A sleek, fast-paced multiplayer reimagining of Tic Tac Toe utilizing modern endless loop mechanics for continuous play.</p>
+						<a href="https://junaidbabu.github.io/Tic-Tac-Vibe/" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-semibold hover:text-brand-900 flex items-center">
+							Launch App 
+							<svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Phonics Buddy -->
+				<div class="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full ring-2 ring-brand-500 ring-offset-2">
+					<div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 w-full relative flex items-center justify-center">
+						<span class="absolute top-4 right-4 bg-white/20 text-white text-xs px-3 py-1 rounded-full font-semibold backdrop-blur-sm border border-white/30">New Release</span>
+					</div>
+					<div class="p-8 flex flex-col flex-grow">
+						<h3 class="font-sans text-xl font-bold text-slate-900 mb-2">Phonics Buddy</h3>
+						<p class="text-slate-600 leading-relaxed mb-6 flex-grow">An advanced, AI-assisted reading tutor for children featuring real-time speech validation, dynamic progression, and offline neural TTS capabilities.</p>
+						<a href="https://junaidbabu.github.io/Phonics-Buddy/" target="_blank" rel="noopener noreferrer" class="text-brand-600 font-semibold hover:text-brand-900 flex items-center">
+							Launch App 
+							<svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="py-20 lg:py-32">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="font-sans text-3xl font-bold text-slate-900 mb-6">About My Approach</h2>
+			<div class="prose prose-lg text-slate-600 mx-auto text-left md:text-center">
+				<p class="mb-4">
+					Quality software shouldn't require complex infrastructures or expensive proprietary subscriptions to operate smoothly. I focus heavily on "Web Native" solutions. 
+				</p>
+				<p class="mb-4">
+					By utilizing tools like React, Vite, Tailwind CSS, and in-browser AI engines (like Web Speech APIs and Transformers.js), I build software that runs primarily on device hardware. This approach ensures maximum privacy, offline capabilities, and zero hidden costs.
+				</p>
+				<p class="font-medium text-slate-800">
+					My definitive mission is to convert ideas into products that live forever. By engineering applications that function predominantly on-device and run seamlessly from static environments like GitHub Pages, I build software that avoids backend server rot, eliminates infrastructure dependencies, and remains accessible indefinitely.
+				</p>
+			</div>
+		</div>
+	</section>
+</Layout>
