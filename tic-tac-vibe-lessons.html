@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Vibe: Firebase Realtime Quirks and Endless Loops</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+            <a href="index.html" class="font-bold text-xl text-slate-900">Junaid<span class="text-blue-600">Babu</span></a>
+            <a href="blog.html" class="text-slate-600 hover:text-blue-600 font-medium tracking-wide">Back to Blog</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-3xl mx-auto px-4 py-16 w-full">
+        <article class="prose prose-lg prose-slate max-w-none">
+            <p class="text-sm text-blue-600 font-bold uppercase tracking-wider mb-1">April 17, 2025</p>
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-8 leading-tight">Tic-Tac-Vibe: Firebase Realtime Quirks and Endless Loops</h1>
+            
+            <p>I decided to modernize Tic-Tac-Toe. Instead of just static 3x3 play, I wanted to build an "endless" multiplayer version where pieces automatically vanish from the board after 5 turns. I called it <strong>Tic-Tac-Vibe</strong>. The goal was to build the entire multiplayer architecture within a single <code>index.html</code> file using Firebase Realtime Database via CDN imports.</p>
+
+            <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4">The Endless Loop Mechanic</h2>
+            <p>Tracking the endless state was a fun data modeling challenge. Instead of simply storing an 'X' or 'O' in a board array, I had to track the timestamp/turn-number of each move. I set an internal constant <code>MOVES_BEFORE_DISAPPEAR = 5</code>. Every time a player makes a move, the local state loops over the board, identifies any piece where <code>nextMoveNumber - piece.moveNumber >= 5</code>, and flags it as <code>null</code>. This immediately forces the oldest plays to dissolve, keeping the game in a constant flow state.</p>
+            
+            <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4">The Sparse Array Bug from Hell</h2>
+            <p>The most devastating bug hit during multiplayer synchronization. Firebase Realtime DB optimizes JSON trees automatically over the wire. If you save an array like <code>['X', null, null, 'O']</code>, Firebase will drop the <code>null</code> elements to save data, effectively transforming it into a sparse object dictionary: <code>{0: 'X', 3: 'O'}</code>.</p>
+            
+            <p>When my <code>onValue</code> listener grabbed the game board data and stuffed it back into the local UI rendering loop, it expected a 9-item dense array. Instead, it received a fragmented object which completely crashed my board-filling loops and win condition checks. </p>
+            
+            <p>I had to explicitly engineer a dense array parser inside the <code>updateBoard(boardData)</code> function to loop through 0-8 linearly, using <code>hasOwnProperty</code> to map the sparse keys back into a guaranteed rigid 9-item array before rendering the React-style state updates. It was an incredibly frustrating nuance of Firebase, but solving it enabled seamless, bug-free multiplayer gameplay directly hosted on a static URL.</p>
+
+        </article>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>&copy; 2026 Junaid Babu. All rights reserved.</p>
+    </footer>
+</body>
+</html>

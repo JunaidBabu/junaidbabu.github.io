@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Alphabets Vibe: Hidden Canvases and Ice Cream</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16 items-center">
+            <a href="index.html" class="font-bold text-xl text-slate-900">Junaid<span class="text-blue-600">Babu</span></a>
+            <a href="blog.html" class="text-slate-600 hover:text-blue-600 font-medium tracking-wide">Back to Blog</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-3xl mx-auto px-4 py-16 w-full">
+        <article class="prose prose-lg prose-slate max-w-none">
+            <p class="text-sm text-blue-600 font-bold uppercase tracking-wider mb-1">April 11, 2025</p>
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-8 leading-tight">Building Alphabets Vibe: Hidden Canvases and Ice Cream</h1>
+            
+            <p>I set out to build an educational alphabet tracing app for kids using nothing but a single HTML file and some AI prompt engineering. While building the interface with Tailwind CSS was a breeze, the underlying mechanics of actually validating a kid's drawing proved a lot trickier than I expected.</p>
+            
+            <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4">The Boundary Condition Solution</h2>
+            <p>How do you verify that someone accurately traced the letter 'A' on a blank canvas? At first, I was stuck on boundary math. The breakthrough came when we engineered a dual-canvas system. I layered a visible <code>#drawingCanvas</code> directly over a hidden <code>#guideCanvas</code>.</p>
+            
+            <p>The hidden canvas renders the target letter perfectly in pure blue pixels <code>[0, 0, 255, 255]</code>. As the user drags their finger on the visible layer, the javascript fires off <code>guideCtx.getImageData(...)</code> at those exact coordinates under the hood to see if they are hitting the blue pixels of the hidden letter underneath. If their stroke paths overlap the hidden blue pixels by at least an <code>85% accuracyThreshold</code>, we declare it a success. It's a remarkably clean illusion.</p>
+            
+            <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4">The Ice Cream Machine Incentive</h2>
+            <p>Once the tracing mechanism worked reliably, the app lacked an engagement loop. Tracing generic letters gets old quickly for toddlers. So, I iterated the prompt to build a visual reward state: the Ice Cream Dispenser.</p>
+            
+            <p>Writing a letter cleanly now increments a progress tracker. First, you get the cone. On the next successful letter, you unlock a yellow scoop, then a strawberry scoop, then chocolate, followed by sprinkles and finally a cherry. When the masterpiece is complete, it triggers a confetti animation and adds the ice cream to a local "collected treats" cart.</p>
+            
+            <p>Tying the rigid <code>getImageData</code> boundary math directly to a colorful CSS DOM progression transformed a boring educational utility into a genuinely fun game loop—all residing in roughly 350 lines of vanilla HTML and Javascript.</p>
+        </article>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>&copy; 2026 Junaid Babu. All rights reserved.</p>
+    </footer>
+</body>
+</html>
