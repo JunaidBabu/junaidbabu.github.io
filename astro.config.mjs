@@ -13,5 +13,13 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [sitemap()]
+  integrations: [
+    sitemap({
+      customPages: [
+        'https://junaidbabu.github.io/alphabets-vibe/',
+        'https://junaidbabu.github.io/Tic-Tac-Vibe/',
+        'https://junaidbabu.github.io/Phonics-Buddy/'
+      ]
+    })
+  ]
 });
